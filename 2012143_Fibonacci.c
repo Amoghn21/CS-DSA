@@ -1,9 +1,9 @@
 /**
  * Amogh Nagunoori(2012143)
-*/
+**/
 #include <stdio.h>
 
-#define MAX 4500
+#define MAX 5000
 
 void add(char num1[], char num2[], char result[])
 {
@@ -22,8 +22,8 @@ void copy2on1(char num1[], char num2[])
     num1[i] = num2[i];
 }
 
-char fibo1[MAX];
-char fibo2[MAX];
+char fib1[MAX];
+char fib2[MAX];
 char result[MAX];
 
 int main()
@@ -31,9 +31,9 @@ int main()
 
   for (int i = 0; i < MAX; i++)
   {
-    fibo1[i] = fibo2[i] = result[i] = '0';
+    fib1[i] = fib2[i] = result[i] = '0';
   }
-  fibo2[MAX - 1] = '1';
+  fib2[MAX - 1] = '1';
 
   int n;
   scanf("%d", &n);
@@ -46,19 +46,19 @@ int main()
   {
     for (int i = 2; i <= n; i++)
     {
-      add(fibo1, fibo2, result);
-      copy2on1(fibo1, fibo2);
-      copy2on1(fibo2, result);
+      add(fibo1, fib2, result);
+      copy2on1(fib1, fib2);
+      copy2on1(fib2, result);
     }
 
-    int numStart = 0;
+    int start = 0;
     for (int i = 0; i < MAX; i++)
     {
-      if (numStart == 0 && result[i] == '0')
+      if (start == 0 && result[i] == '0')
         continue;
 
-      if (numStart == 0 && result[i] != '0')
-        numStart =1;
+      if (start == 0 && result[i] != '0')
+        start = 1;
       printf("%c", result[i]);
     }
     printf("\n");

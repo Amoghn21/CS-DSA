@@ -12,7 +12,7 @@ void sum(char a[],char b[],char result[])
   for(int j=4999;j>=0;j--)
   {
     int value=( a[j]-'0')+(b[j]-'0')+carry;
-    result[j]=(value%10)-'0';
+    result[j]=(value%10)+'0';
     carry=value/10;
   }
   
@@ -30,20 +30,23 @@ int main()
  scanf("%d",&num);
 
   if(num==0 || num==1)
-  {  return num;}
-  for(int i=2;i<num;i++) 
-  { sum(f1,f2,result);
+  {  printf("%c",num+'0');}
+  else 
+  {for(int i=2;i<num;i++) 
+     { sum(f1,f2,result);
     cpy(f1,f2);
     cpy(f2,result);
-  }
+    }
  int start=0;
  for(int i=0;i<5000;i++)
- { if((start==0) && (result[i]=0))
+ { if(start ==0 && result[i]=='0')
    continue;
-   if((start==0) && (result[i]!=0))
-   { start=1;
+   if( start == 0 &&  result[i]!= '0')
+    start=1;
     printf("%c",result[i]);
-   }
+ }
+   
+   
    printf("\n");
  }
  
@@ -51,3 +54,4 @@ int main()
 
 return 0;
 }
+
